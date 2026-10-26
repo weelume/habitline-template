@@ -1,27 +1,27 @@
 /* 根节点标记由 Shell 管理，模板卸载即恢复；保留原生滚动和键盘行为。 */
 html[data-habitline-scrollbar], .hl {
-  --hl-scroll-track: #f2f2ee;
-  --hl-scroll-thumb: #747b73;
-  --hl-scroll-thumb-hover: #ed682f;
-  --hl-scroll-thumb-active: #bd461a;
+  --hl-scroll-track: transparent;
+  --hl-scroll-thumb: rgba(222, 105, 47, .78);
+  --hl-scroll-thumb-hover: #eb641f;
+  --hl-scroll-thumb-active: #b64217;
   scrollbar-width: thin;
   scrollbar-color: var(--hl-scroll-thumb) var(--hl-scroll-track);
 }
 html[data-habitline-scrollbar] { scrollbar-gutter: stable; }
 .hl * { scrollbar-width: thin; scrollbar-color: var(--hl-scroll-thumb) transparent; }
-/* Chromium 同时支持两套 API；将标准属性恢复为 auto，确保 8px/6px 细节生效。 */
+/* Chromium 同时支持两套 API；将标准属性恢复为 auto，确保 6px/4px 细节生效。 */
 @supports selector(::-webkit-scrollbar) {
   html[data-habitline-scrollbar], .hl, .hl * { scrollbar-width: auto; scrollbar-color: auto; }
-  html[data-habitline-scrollbar]::-webkit-scrollbar { width: 8px; height: 8px; }
-  .hl::-webkit-scrollbar, .hl *::-webkit-scrollbar { width: 6px; height: 6px; }
+  html[data-habitline-scrollbar]::-webkit-scrollbar { width: 6px; height: 6px; }
+  .hl::-webkit-scrollbar, .hl *::-webkit-scrollbar { width: 4px; height: 4px; }
   html[data-habitline-scrollbar]::-webkit-scrollbar-track { background: var(--hl-scroll-track); }
   .hl::-webkit-scrollbar-track, .hl *::-webkit-scrollbar-track { background: transparent; }
   html[data-habitline-scrollbar]::-webkit-scrollbar-thumb, .hl::-webkit-scrollbar-thumb, .hl *::-webkit-scrollbar-thumb {
-    min-height: 36px; min-width: 36px; border-radius: 999px;
-    border: 2px solid transparent; background: var(--hl-scroll-thumb); background-clip: padding-box;
+    min-height: 48px; min-width: 48px; border-radius: 999px;
+    border: 1.5px solid transparent; background: var(--hl-scroll-thumb); background-clip: padding-box;
   }
-  html[data-habitline-scrollbar]::-webkit-scrollbar-thumb:hover, .hl::-webkit-scrollbar-thumb:hover, .hl *::-webkit-scrollbar-thumb:hover { background-color: var(--hl-scroll-thumb-hover); }
-  html[data-habitline-scrollbar]::-webkit-scrollbar-thumb:active, .hl::-webkit-scrollbar-thumb:active, .hl *::-webkit-scrollbar-thumb:active { background-color: var(--hl-scroll-thumb-active); }
+  html[data-habitline-scrollbar]::-webkit-scrollbar-thumb:hover, .hl::-webkit-scrollbar-thumb:hover, .hl *::-webkit-scrollbar-thumb:hover { background-color: var(--hl-scroll-thumb-hover); border-width: 1px; }
+  html[data-habitline-scrollbar]::-webkit-scrollbar-thumb:active, .hl::-webkit-scrollbar-thumb:active, .hl *::-webkit-scrollbar-thumb:active { background-color: var(--hl-scroll-thumb-active); border-width: 1px; }
   html[data-habitline-scrollbar]::-webkit-scrollbar-corner, .hl *::-webkit-scrollbar-corner { background: transparent; }
 }
 @media (forced-colors: active) {
