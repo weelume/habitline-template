@@ -1,0 +1,73 @@
+{
+  "$schema": "./schemas/customization.schema.json",
+  "format": "git-template-customization",
+  "formatVersion": "0.2.0",
+  "entries": [
+    {
+      "id": "brand",
+      "title": "品牌与宿主配置",
+      "description": "修改独立品牌，或通过 Provider 注入消费方品牌。",
+      "files": [
+        {
+          "path": "src/features/site-templates/catalog/habitline/config/brand.ts",
+          "kind": "file",
+          "purpose": "品牌配置"
+        },
+        {
+          "path": "src/features/site-templates/catalog/habitline/host.tsx",
+          "kind": "file",
+          "purpose": "消费方注入接口"
+        }
+      ],
+      "constraints": [
+        "不在业务页面重复硬编码品牌"
+      ],
+      "checks": [
+        "typecheck"
+      ]
+    },
+    {
+      "id": "content",
+      "title": "双语内容",
+      "description": "同步修改中文与英文内容。",
+      "files": [
+        {
+          "path": "src/features/site-templates/catalog/habitline/content",
+          "kind": "directory",
+          "purpose": "双语内容与数据"
+        }
+      ],
+      "constraints": [
+        "保持双语字段完整"
+      ],
+      "checks": [
+        "typecheck"
+      ]
+    },
+    {
+      "id": "theme",
+      "title": "主题与动效",
+      "description": "修改主题令牌、响应式布局和区块动画。",
+      "files": [
+        {
+          "path": "src/features/site-templates/catalog/habitline/theme.css",
+          "kind": "file",
+          "purpose": "主题与布局"
+        },
+        {
+          "path": "src/features/site-templates/catalog/habitline/components",
+          "kind": "directory",
+          "purpose": "共享组件与动效"
+        }
+      ],
+      "constraints": [
+        "保留减少动态设置",
+        "新动效需三端验收"
+      ],
+      "checks": [
+        "typecheck",
+        "lint"
+      ]
+    }
+  ]
+}

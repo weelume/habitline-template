@@ -1,0 +1,216 @@
+{
+  "id": "habitline",
+  "name": "Habitline · 从容习惯",
+  "localizedNames": {
+    "en": "Habitline · Calm daily habits"
+  },
+  "sceneId": "landing-page",
+  "listed": false,
+  "tags": [
+    "健康生活",
+    "习惯管理",
+    "玻璃质感",
+    "双语",
+    "PC / iPad / H5"
+  ],
+  "summary": "暖橙色健康生活与习惯追踪模板，包含双首页、场景切换、动态数据、视频评价、定价、候补名单、更新日志、FAQ 和联系页。",
+  "accentColor": "#ff5900",
+  "cover": "assets/desktop-home.webp",
+  "screenshots": [
+    {
+      "src": "assets/desktop-home.webp",
+      "alt": "Habitline desktop home",
+      "device": "desktop",
+      "width": 1425,
+      "height": 990,
+      "surfaceId": "site",
+      "pageSlug": ""
+    },
+    {
+      "src": "assets/desktop-features.webp",
+      "alt": "Habitline desktop features",
+      "device": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "surfaceId": "site",
+      "pageSlug": "home-2"
+    },
+    {
+      "src": "assets/desktop-about.webp",
+      "alt": "Habitline desktop about",
+      "device": "desktop",
+      "width": 1425,
+      "height": 990,
+      "surfaceId": "site",
+      "pageSlug": "about"
+    },
+    {
+      "src": "assets/desktop-contact.webp",
+      "alt": "Habitline desktop contact",
+      "device": "desktop",
+      "width": 1425,
+      "height": 990,
+      "surfaceId": "site",
+      "pageSlug": "contact"
+    },
+    {
+      "src": "assets/tablet-home.webp",
+      "alt": "Habitline tablet home",
+      "device": "tablet",
+      "width": 819,
+      "height": 1159,
+      "surfaceId": "site",
+      "pageSlug": ""
+    },
+    {
+      "src": "assets/tablet-features.webp",
+      "alt": "Habitline tablet features",
+      "device": "tablet",
+      "width": 834,
+      "height": 1180,
+      "surfaceId": "site",
+      "pageSlug": "home-2"
+    },
+    {
+      "src": "assets/tablet-about.webp",
+      "alt": "Habitline tablet about",
+      "device": "tablet",
+      "width": 819,
+      "height": 1159,
+      "surfaceId": "site",
+      "pageSlug": "about"
+    },
+    {
+      "src": "assets/tablet-contact.webp",
+      "alt": "Habitline tablet contact",
+      "device": "tablet",
+      "width": 819,
+      "height": 1159,
+      "surfaceId": "site",
+      "pageSlug": "contact"
+    },
+    {
+      "src": "assets/mobile-home.webp",
+      "alt": "Habitline mobile home",
+      "device": "mobile",
+      "width": 375,
+      "height": 812,
+      "surfaceId": "site",
+      "pageSlug": ""
+    },
+    {
+      "src": "assets/mobile-features.webp",
+      "alt": "Habitline mobile features",
+      "device": "mobile",
+      "width": 390,
+      "height": 844,
+      "surfaceId": "site",
+      "pageSlug": "home-2"
+    },
+    {
+      "src": "assets/mobile-about.webp",
+      "alt": "Habitline mobile about",
+      "device": "mobile",
+      "width": 375,
+      "height": 812,
+      "surfaceId": "site",
+      "pageSlug": "about"
+    },
+    {
+      "src": "assets/mobile-contact.webp",
+      "alt": "Habitline mobile contact",
+      "device": "mobile",
+      "width": 375,
+      "height": 812,
+      "surfaceId": "site",
+      "pageSlug": "contact"
+    }
+  ],
+  "$schema": "./schemas/template.schema.json",
+  "format": "git-template",
+  "formatVersion": "0.2.0",
+  "version": "1.0.0",
+  "surfaces": [
+    {
+      "id": "site",
+      "name": "官网",
+      "platform": "pc",
+      "locales": [
+        "zh",
+        "en"
+      ],
+      "pages": [
+        {
+          "slug": "",
+          "title": "首页",
+          "localizedTitles": {
+            "en": "Home"
+          }
+        },
+        {
+          "slug": "home-2",
+          "title": "首页二",
+          "localizedTitles": {
+            "en": "Home 2"
+          }
+        },
+        {
+          "slug": "about",
+          "title": "关于我们",
+          "localizedTitles": {
+            "en": "About"
+          }
+        },
+        {
+          "slug": "waitlist",
+          "title": "候补名单",
+          "localizedTitles": {
+            "en": "Waitlist"
+          }
+        },
+        {
+          "slug": "changelog",
+          "title": "更新日志",
+          "localizedTitles": {
+            "en": "Changelog"
+          }
+        },
+        {
+          "slug": "faqs",
+          "title": "常见问题",
+          "localizedTitles": {
+            "en": "FAQs"
+          }
+        },
+        {
+          "slug": "contact",
+          "title": "联系我们",
+          "localizedTitles": {
+            "en": "Contact"
+          }
+        },
+        {
+          "slug": "legal-pages/privacy-policy",
+          "title": "隐私政策",
+          "localizedTitles": {
+            "en": "Privacy Policy"
+          }
+        },
+        {
+          "slug": "legal-pages/terms-conditions",
+          "title": "服务条款",
+          "localizedTitles": {
+            "en": "Terms & Conditions"
+          }
+        }
+      ]
+    }
+  ],
+  "license": {
+    "type": "restricted",
+    "file": "docs/LICENSE.md",
+    "summary": "参考站设计与素材授权待核实，仅用于本地复刻演示。",
+    "redistributionAllowed": false
+  },
+  "gitUrl": "https://github.com/weelume/habitline-template"
+}
