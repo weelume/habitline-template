@@ -3,9 +3,9 @@
   "format": "git-template-verification",
   "formatVersion": "0.2.0",
   "status": "passed",
-  "checkedAt": "2026-10-26T03:18:35.381Z",
+  "checkedAt": "2026-10-26T03:43:43.821Z",
   "sourceCommit": null,
-  "sourceDigest": "56406a8288d7b8bc11d5050a5759fa16a39c50a9a2f0291bc8e32254c124ec04",
+  "sourceDigest": "fc698c38ce82ac1b1151b08ee0f8ac49111e1c11af15a32a8f99d3963d2fa233",
   "environment": {
     "platform": "linux",
     "arch": "x64",
@@ -25,8 +25,8 @@
       ],
       "status": "passed",
       "exitCode": 0,
-      "startedAt": "2026-10-26T03:18:10.637Z",
-      "finishedAt": "2026-10-26T03:18:12.608Z"
+      "startedAt": "2026-10-26T03:43:13.903Z",
+      "finishedAt": "2026-10-26T03:43:16.034Z"
     },
     {
       "id": "lint",
@@ -38,8 +38,8 @@
       ],
       "status": "passed",
       "exitCode": 0,
-      "startedAt": "2026-10-26T03:18:12.608Z",
-      "finishedAt": "2026-10-26T03:18:15.487Z"
+      "startedAt": "2026-10-26T03:43:16.035Z",
+      "finishedAt": "2026-10-26T03:43:19.709Z"
     },
     {
       "id": "build",
@@ -51,8 +51,8 @@
       ],
       "status": "passed",
       "exitCode": 0,
-      "startedAt": "2026-10-26T03:18:15.487Z",
-      "finishedAt": "2026-10-26T03:18:32.601Z"
+      "startedAt": "2026-10-26T03:43:19.709Z",
+      "finishedAt": "2026-10-26T03:43:40.935Z"
     },
     {
       "id": "test",
@@ -64,8 +64,8 @@
       ],
       "status": "passed",
       "exitCode": 0,
-      "startedAt": "2026-10-26T03:18:32.601Z",
-      "finishedAt": "2026-10-26T03:18:35.380Z"
+      "startedAt": "2026-10-26T03:43:40.935Z",
+      "finishedAt": "2026-10-26T03:43:43.820Z"
     }
   ],
   "services": [
@@ -73,7 +73,7 @@
       "id": "web",
       "status": "passed",
       "stopped": true,
-      "checkedAt": "2026-10-26T03:18:35.380Z",
+      "checkedAt": "2026-10-26T03:43:43.820Z",
       "reason": "生产 HTTP 测试启动隔离端口 43568，验证 18 条双语路径、404 和本地素材后停止本测试创建的进程。"
     }
   ],

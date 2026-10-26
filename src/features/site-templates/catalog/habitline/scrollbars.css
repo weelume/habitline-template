@@ -1,5 +1,5 @@
-/* 根节点标记由 Shell 管理，模板卸载即恢复；保留原生滚动和键盘行为。 */
-html[data-habitline-scrollbar], .hl {
+/* 根节点标记由 Shell 管理；同时覆盖 html/body 的视口滚动条，避免宿主 body 规则继续绘制灰色滑块。模板卸载即恢复。 */
+html[data-habitline-scrollbar], html[data-habitline-scrollbar] body, .hl {
   --hl-scroll-track: transparent;
   --hl-scroll-thumb: rgba(222, 105, 47, .78);
   --hl-scroll-thumb-hover: #eb641f;
@@ -11,19 +11,19 @@ html[data-habitline-scrollbar] { scrollbar-gutter: stable; }
 .hl * { scrollbar-width: thin; scrollbar-color: var(--hl-scroll-thumb) transparent; }
 /* Chromium 同时支持两套 API；将标准属性恢复为 auto，确保 6px/4px 细节生效。 */
 @supports selector(::-webkit-scrollbar) {
-  html[data-habitline-scrollbar], .hl, .hl * { scrollbar-width: auto; scrollbar-color: auto; }
-  html[data-habitline-scrollbar]::-webkit-scrollbar { width: 6px; height: 6px; }
+  html[data-habitline-scrollbar], html[data-habitline-scrollbar] body, .hl, .hl * { scrollbar-width: auto; scrollbar-color: auto; }
+  html[data-habitline-scrollbar]::-webkit-scrollbar, html[data-habitline-scrollbar] body::-webkit-scrollbar { width: 6px; height: 6px; }
   .hl::-webkit-scrollbar, .hl *::-webkit-scrollbar { width: 4px; height: 4px; }
-  html[data-habitline-scrollbar]::-webkit-scrollbar-track { background: var(--hl-scroll-track); }
+  html[data-habitline-scrollbar]::-webkit-scrollbar-track, html[data-habitline-scrollbar] body::-webkit-scrollbar-track { background: var(--hl-scroll-track); }
   .hl::-webkit-scrollbar-track, .hl *::-webkit-scrollbar-track { background: transparent; }
-  html[data-habitline-scrollbar]::-webkit-scrollbar-thumb, .hl::-webkit-scrollbar-thumb, .hl *::-webkit-scrollbar-thumb {
+  html[data-habitline-scrollbar]::-webkit-scrollbar-thumb, html[data-habitline-scrollbar] body::-webkit-scrollbar-thumb, .hl::-webkit-scrollbar-thumb, .hl *::-webkit-scrollbar-thumb {
     min-height: 48px; min-width: 48px; border-radius: 999px;
     border: 1.5px solid transparent; background: var(--hl-scroll-thumb); background-clip: padding-box;
   }
-  html[data-habitline-scrollbar]::-webkit-scrollbar-thumb:hover, .hl::-webkit-scrollbar-thumb:hover, .hl *::-webkit-scrollbar-thumb:hover { background-color: var(--hl-scroll-thumb-hover); border-width: 1px; }
-  html[data-habitline-scrollbar]::-webkit-scrollbar-thumb:active, .hl::-webkit-scrollbar-thumb:active, .hl *::-webkit-scrollbar-thumb:active { background-color: var(--hl-scroll-thumb-active); border-width: 1px; }
-  html[data-habitline-scrollbar]::-webkit-scrollbar-corner, .hl *::-webkit-scrollbar-corner { background: transparent; }
+  html[data-habitline-scrollbar]::-webkit-scrollbar-thumb:hover, html[data-habitline-scrollbar] body::-webkit-scrollbar-thumb:hover, .hl::-webkit-scrollbar-thumb:hover, .hl *::-webkit-scrollbar-thumb:hover { background-color: var(--hl-scroll-thumb-hover); border-width: 1px; }
+  html[data-habitline-scrollbar]::-webkit-scrollbar-thumb:active, html[data-habitline-scrollbar] body::-webkit-scrollbar-thumb:active, .hl::-webkit-scrollbar-thumb:active, .hl *::-webkit-scrollbar-thumb:active { background-color: var(--hl-scroll-thumb-active); border-width: 1px; }
+  html[data-habitline-scrollbar]::-webkit-scrollbar-corner, html[data-habitline-scrollbar] body::-webkit-scrollbar-corner, .hl *::-webkit-scrollbar-corner { background: transparent; }
 }
 @media (forced-colors: active) {
-  html[data-habitline-scrollbar], .hl, .hl * { scrollbar-color: auto; }
+  html[data-habitline-scrollbar], html[data-habitline-scrollbar] body, .hl, .hl * { scrollbar-color: auto; }
 }
