@@ -1,15 +1,16 @@
 import { execFile } from 'node:child_process'
 import { promisify } from 'node:util'
 import { createHash } from 'node:crypto'
-import { readFile,writeFile,mkdir,readdir } from 'node:fs/promises'
+import { readFile,writeFile,mkdir } from 'node:fs/promises'
 import { resolve,join } from 'node:path'
 import { invocation } from '../.tpl/tools/doctor.mjs'
 const exec=promisify(execFile),root=resolve(import.meta.dirname,'..'),output=join(root,'.work/packages')
 await mkdir(output,{recursive:true})
 const command=await invocation('pnpm',['pack','--pack-destination',output])
 await exec(command.file,command.args,{cwd:root,windowsHide:true,maxBuffer:1024*1024})
-const name=(await readdir(output)).find(name=>name.endsWith('.tgz'))
-if(!name)throw new Error('No bundle created')
+// 必须选择本次版本，不能误取输出目录中的历史归档。
+const pkg=JSON.parse(await readFile(join(root,'package.json'),'utf8'))
+const name=pkg.name+'-'+pkg.version+'.tgz'
 const archive=join(output,name),sha256=createHash('sha256').update(await readFile(archive)).digest('hex')
 let sourceCommit=null
 try{sourceCommit=(await exec('git',['rev-parse','HEAD'],{cwd:root,windowsHide:true})).stdout.trim()}catch(error){if(!/unknown revision|ambiguous argument|bad revision/i.test(error.stderr??''))throw error}

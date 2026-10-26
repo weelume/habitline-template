@@ -25,6 +25,18 @@ export function Shell({ children, locale, basePath, hero = false }: {
     const home = (basePath || '') + '/';
     const nav = [['features', '功能一览', 'What’s inside'], ['use-case', '应用场景', 'Use case'], ['metrics', '真实成果', 'Metrics'], ['smart-assist', '智能建议', 'Smart Assist']];
     useEffect(() => { document.documentElement.lang = locale === 'en' ? 'en' : 'zh-CN'; }, [locale]);
+    // 页面滚动条属于文档根节点；离开模板后恢复原状态，避免影响消费方其他页面。
+    useEffect(() => {
+        const element = document.documentElement;
+        const previous = element.getAttribute('data-habitline-scrollbar');
+        element.setAttribute('data-habitline-scrollbar', '');
+        return () => {
+            if (previous === null)
+                element.removeAttribute('data-habitline-scrollbar');
+            else
+                element.setAttribute('data-habitline-scrollbar', previous);
+        };
+    }, []);
     function closeMenu() { setMenu(false); menuButton.current?.focus(); }
     function languageHref() { const suffix = pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname; return (locale === 'en' ? root : root + '/en') + (suffix || '/'); }
     return <MotionConfig reducedMotion="user"><div className="hl" lang={locale === 'en' ? 'en' : 'zh-CN'}><a className="hl-skip" href="#hl-main">{t(copy('跳转正文', 'Skip to content'), locale)}</a><header className={'hl-header ' + (hero ? 'hl-header-hero' : '')}><Link className="hl-brand" href={home}>{host.logo && <img src={host.logo} alt=""/>}<span>{t(host.brandName, locale)}</span></Link><nav aria-label={t(copy('主导航', 'Main navigation'), locale)}>{nav.map(([id, zh, en]) => <Link key={id} href={home + '#' + id}>{locale === 'zh' ? zh : en}</Link>)}</nav><div className="hl-nav-right"><Link href={languageHref()} onClick={event => { event.preventDefault(); router.push(languageHref() + window.location.search + window.location.hash); }} aria-label={locale === 'zh' ? 'Switch to English' : '切换为中文'}>{locale === 'zh' ? 'EN' : '中文'}</Link><button ref={menuButton} onClick={() => setMenu(!menu)} aria-expanded={menu} aria-controls="hl-mobile-menu" className="hl-menu-button">{t(copy(menu ? '关闭' : '菜单', menu ? 'Close' : 'Menu'), locale)}</button></div><AnimatePresence>{menu && <motion.nav id="hl-mobile-menu" className="hl-mobile-menu" aria-label={t(copy('全部页面', 'All pages'), locale)} initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} onKeyDown={e => {
